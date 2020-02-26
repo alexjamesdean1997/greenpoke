@@ -1,0 +1,42 @@
+{
+    "0": {
+        "url": "https://www.reddit.com/",
+        "title": "reddit",
+        "files": {
+            "index.html" : 730,
+            "style.css" : 481,
+            "app.js" : 576,
+            "dog.jpg" : 13759
+        }
+    },
+    "1": {
+        "url": "https://www.facebook.com/",
+        "title": "facebook",
+        "files": {
+            "index.html" : 830,
+            "style.css" : 1481,
+            "app.js" : 76,
+            "dog.jpg" : 1359
+        }
+    },
+    "2": {
+        "url": "https://www.twitter.com/",
+        "title": "twitter",
+        "files": {
+            "index.html" : 1730,
+            "style.css" : 4281,
+            "app.js" : 56,
+            "dog.jpg" : 2359
+        }
+    },
+    "3": {
+        "url": "https://www.bbcnews.com/",
+        "title": "bbcnews",
+        "files": {
+            "index.html" : 440,
+            "style.css" : 4811,
+            "app.js" : 76,
+            "dog.jpg" : 53759
+        }
+    }
+}
