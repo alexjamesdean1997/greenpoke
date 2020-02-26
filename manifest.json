@@ -7,11 +7,11 @@
     "declarativeContent",
     "storage",
     "tabs",
-    "history"
+	"history"
   ],
   "background": {
     "scripts": [
-      "background.js"
+	  "background.js"
     ],
     "persistent": false
   },
