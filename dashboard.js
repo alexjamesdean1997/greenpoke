@@ -13,11 +13,38 @@ function loadJSON(callback) {
 }
 
 function init() {
+    let dashboard = document.getElementById('dashboard');
     loadJSON(function(response) {
         // Parse JSON string into object
         var actual_JSON = JSON.parse(response);
         console.log(actual_JSON);
+
+        // calculate total size of each website by adding files size
+        var totalGlobal = 0;
+        Object.keys(actual_JSON).map(function(objectKey, index) {
+            var value = actual_JSON[objectKey];
+            //console.log(value.files);
+            var totalSite = 0;
+            Object.keys(value.files).map(function(objectKey, index) {
+                var size = value.files[objectKey];
+                totalSite = totalSite + size;
+            });
+            let totalSiteContainer = document.createElement('div');
+            totalSiteContainer.append(value.title + ' = ' + totalSite + ' ko');
+            dashboard.append(totalSiteContainer);
+            totalGlobal = totalGlobal + totalSite;
+        });
+
+        let totalGlobalContainer = document.createElement('div');
+        totalGlobalContainer.append('TOTAL CONSOMMATION = ' + totalGlobal + ' ko');
+        dashboard.append(totalGlobalContainer);
+
+        //calculate total size of global consumption
+
+
     });
 }
 
 init();
+
+
