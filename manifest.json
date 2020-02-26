@@ -1,12 +1,13 @@
 {
-  "name": "data_watch",
+  "name": "greenpoke",
   "version": "1.0",
   "description": "Build an Extension!",
   "permissions": [
     "activeTab",
     "declarativeContent",
     "storage",
-    "tabs"
+    "tabs",
+    "history"
   ],
   "background": {
     "scripts": [
@@ -14,7 +15,7 @@
     ],
     "persistent": false
   },
-  "page_action": {
+  "browser_action": {
     "default_popup": "popup.html"
   },
   "manifest_version": 2
