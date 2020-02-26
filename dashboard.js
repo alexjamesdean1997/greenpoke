@@ -17,7 +17,26 @@ function init() {
         // Parse JSON string into object
         var actual_JSON = JSON.parse(response);
         console.log(actual_JSON);
+
+        // for each site calculate total size
+        Object.keys(actual_JSON).map(function(objectKey, index) {
+            var value = actual_JSON[objectKey];
+            //console.log(value.files);
+            var total = 0;
+            Object.keys(value.files).map(function(objectKey, index) {
+                var size = value.files[objectKey];
+                console.log(size);
+                total = total + size;
+            });
+            console.log(value.title + ' = ' + total);
+        });
+
+        //calculate total size
+
+
     });
 }
 
 init();
+
+
