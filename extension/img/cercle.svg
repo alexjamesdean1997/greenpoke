@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="167.831" height="173.31" viewBox="0 0 167.831 173.31">
+  <defs>
+    <filter id="Tracé_120" x="0" y="0" width="167.831" height="173.31" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="cercle_points" transform="translate(-44.143 -110.477)">
+    <g id="Ellipse_14" data-name="Ellipse 14" transform="translate(56 119)" fill="none" stroke="#82bfa1" stroke-width="8">
+      <ellipse cx="75.5" cy="75" rx="75.5" ry="75" stroke="none"/>
+      <ellipse cx="75.5" cy="75" rx="71.5" ry="71" fill="none"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 44.14, 110.48)" filter="url(#Tracé_120)">
+      <path id="Tracé_120-2" data-name="Tracé 120" d="M558.255,361.432a71.915,71.915,0,1,1-66.326-99.547" transform="translate(-404.95 -249.89)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="12"/>
+    </g>
+  </g>
+</svg>

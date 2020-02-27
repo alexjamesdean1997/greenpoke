@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="778.202" height="207.519" viewBox="0 0 778.202 207.519">
+  <g id="Groupe_67" data-name="Groupe 67" transform="translate(-896.304 -589.481)">
+    <g id="graphique" transform="translate(896.304 589.981)">
+      <text id="_17h" data-name="17h" transform="translate(530 202.019)" font-size="16" font-family="ProximaNova-Regular, Proxima Nova"><tspan x="0" y="0">17h</tspan></text>
+      <text id="_16h" data-name="16h" transform="translate(415 202.019)" font-size="16" font-family="ProximaNova-Regular, Proxima Nova"><tspan x="0" y="0">16h</tspan></text>
+      <text id="_18h" data-name="18h" transform="translate(656 202.019)" font-size="16" font-family="ProximaNova-Regular, Proxima Nova"><tspan x="0" y="0">18h</tspan></text>
+      <text id="_15h" data-name="15h" transform="translate(300 202.019)" font-size="16" font-family="ProximaNova-Regular, Proxima Nova"><tspan x="0" y="0">15h</tspan></text>
+      <text id="_14h" data-name="14h" transform="translate(186 202.019)" font-size="16" font-family="ProximaNova-Regular, Proxima Nova"><tspan x="0" y="0">14h</tspan></text>
+      <path id="Tracé_3" data-name="Tracé 3" d="M4411.025,635.244c-41.731-2.712-33.751,18.684-66.292,20.175S4291.1,604.7,4241.72,598.9s-63.646,36.278-95,36.34-43.716-9.344-54.473-22.551-21.844-41.943-62.925-41.013-27.437,72.927-64.918,76.009-40.046-18.372-69.243-17.051c-28.583,1.293-53.43,90.832-66.52,95.582.812-.35,690.162-.452,690.162-.452S4452.757,637.956,4411.025,635.244Z" transform="translate(-3755.802 -554.981)" fill="#82bfa1"/>
+      <line id="Ligne_16" data-name="Ligne 16" y2="182.519" transform="translate(72.453)" fill="none" stroke="#e0e0e0" stroke-linecap="round" stroke-width="1"/>
+      <line id="Ligne_18" data-name="Ligne 18" y1="182.519" transform="translate(425.266)" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+      <line id="Ligne_19" data-name="Ligne 19" y1="182.519" transform="translate(311.487)" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+      <line id="Ligne_21" data-name="Ligne 21" y1="182.519" transform="translate(196.969)" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+      <line id="Ligne_23" data-name="Ligne 23" y1="182.519" transform="translate(540.187)" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+      <line id="Ligne_26" data-name="Ligne 26" y1="182.519" transform="translate(668.567)" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+      <text id="_300_Mo" data-name="300 Mo" transform="translate(0 94.019)" font-size="16" font-family="ProximaNova-Regular, Proxima Nova"><tspan x="0" y="0">300 Mo</tspan></text>
+      <text id="_600_Mo" data-name="600 Mo" transform="translate(0 24.019)" font-size="16" font-family="ProximaNova-Regular, Proxima Nova"><tspan x="0" y="0">600 Mo</tspan></text>
+      <line id="Ligne_30" data-name="Ligne 30" x1="716.508" transform="translate(61.194 171.259)" fill="none" stroke="#e0e0e0" stroke-linecap="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

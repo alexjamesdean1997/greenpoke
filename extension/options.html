@@ -5,30 +5,123 @@
     <link rel="icon" href="greenpoke.png"/>
     <title>GreenPoke</title>
     <style>
+        /* FONTS */
+        @font-face {
+            font-family: 'proximaNova';
+            src: url('font/Gilroy-Regular.otf');
+        }
+
+        @font-face {
+            font-family: 'cocogooseBold';
+            src: url('font/CocogoosePro-Bold.otf');
+        }
+
         body{
             background: transparent linear-gradient(0deg, #FFE8DE 0%, #EDF9EE 100%) 0% 0% no-repeat padding-box;
+            font-family: 'cocogooseBold';
+        }
+
+        .proxima{
+            font-family: 'proximaNova';
         }
 
         header {
+            padding-top: 15px;
             position: fixed;
             top: 0;
             left: 0;
             bottom: 0;
             width: 280px;
-            background: #EFF7EC 0% 0% no-repeat padding-box;
+            background: #298871;
             box-shadow: 0px 10px 40px #00000029;
         }
 
+        header .points{
+            margin-top: 20px;
+            height: 20%;
+            display: flex;
+            align-items: center;
+            color: white;
+            background-image: url("./img/cercle.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        .settings img{
+            width: 30px;
+            height: auto;
+            align-items: center;
+        }
+
+        .eco-inner{
+            display: flex;
+            align-items: center;
+        }
+        
+        .links{
+            height: 50%;
+        }
+
+        header ul{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-evenly;
+            list-style: none;
+        }
+
+        header li a{
+             text-decoration: none;
+             padding-right: 40px;
+             font-size: 20px;
+             color: white;
+            opacity: 0.8;
+         }
+
+        header li a:hover, header li a.on{
+              /*text-decoration: underline;*/
+          }
+
+        header li a.on{
+            opacity: 1;
+        }
+
+        .social{
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .social img{
+            width:25px;
+            height: auto;
+        }
+
         main {
-            width: calc(100% - 280px);
+            width: calc(100% - 360px);
             margin-left: auto;
+            padding: 0 40px;
+        }
+
+        .eco{
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .action{
+            margin-left: 20px;
         }
 
         .eco-mode {
-            background-color: white;
+            background-image: url("./img/eco.png");
             margin: 20px;
-            padding: 20px;
+            padding: 82px;
             border-radius: 10px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
         }
 
         .stats {
@@ -43,16 +136,21 @@
             margin: 0;
         }
 
-        .help {
+        .logo {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             padding: 10px;
         }
 
-        .help .icon {
-            height: 25px;
-            width: 25px;
-            background-color: #333;
+        .logo img{
+
+        }
+
+        .logo .icon {
+            height: 20px;
+            width: 20px;
+            background: #82BFA1 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 6px #00000029;
             border-radius: 30px;
             color: white;
             display: flex;
@@ -82,11 +180,11 @@
             border-radius: 50%;
         }
 
-        .name {
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            padding-top: 20px;
+        .name-bar {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
         }
 
         .eco-mode {
@@ -139,7 +237,7 @@
         }
 
         .conso-size {
-            margin-top: 20px;
+            margin-top: 40px;
             font-size: 50px;
             text-align: center;
             font-weight: bold;
@@ -154,7 +252,7 @@
 
         .block {
             border-radius: 10px;
-            padding: 20px;
+            padding: 32px 40px;
             min-height: 160px;
             background-color: #F8F8F8;
             box-shadow: 0px 9px 44px #00000029;
@@ -167,6 +265,16 @@
         .history, .tips {
             grid-column: span 3;
         }
+        
+        .graph{
+            padding: 0 20px;
+        }
+        
+        .graph img{
+            width: 100%;
+            display: block;
+            margin-top: 20px;
+        }
 
         .global, .top{
             background-color: #F19363CC;
@@ -177,8 +285,12 @@
             background-color: #82BFA1;
         }
 
+        .tips h2{
+            color: white;
+        }
+
         .tip {
-            margin: 10px 0;
+            margin: 20px 0;
             border-radius: 10px;
             display: flex;
             padding: 20px;
@@ -195,6 +307,11 @@
             padding: 20px 0;
             display: flex;
             align-items: center;
+        }
+
+        .top-icon img{
+            width: 20px;
+            height: auto;
         }
 
         .top-bar {
@@ -227,7 +344,7 @@
             width: 70%;
             height: 10px;
             border-radius: 10px;
-            background-color: #1BA383;
+            background-color: #C87951;
         }
 
         .fill-70 {
@@ -247,12 +364,13 @@
             width: 50%;
             display: flex;
             justify-content: space-around;
-            background-color: #DEDEDE;
+            background-color: #469D731D;
             border-radius: 5px;
         }
 
         button {
-            padding: 10px;
+            font-family: 'proximaNova';
+            padding: 6px;
             width: 33%;
             border: none;
             background-color: transparent;
@@ -262,12 +380,7 @@
 
         .active, button:hover, button:active {
             background-color: #1BA383;
-        }
-
-        .total {
-            padding: 10px;
-            margin: 10px;
-            border: 1px solid black;
+            color: white;
         }
 
         /* toggle button */
@@ -318,30 +431,42 @@
 </head>
 <body>
 <header>
-    <div class="help">
-        <a href="#" class="icon">?</a>
+    <div class="logo">
+        <img src="./img/logow.svg" alt="">
+        <a href="#" class="icon proxima">?</a>
     </div>
     <div class="points">35 pts</div>
-    <div class="profile">
-        <div>
-            <img src="/img/alex.jpg" alt="profile picture">
-            <div class="name">John Smith</div>
-        </div>
+    <div class="links">
+        <ul>
+            <li><a href="#">Activité</a></li>
+            <li><a class="on" href="#">Compte</a></li>
+            <li><a href="#">Avantages</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
     </div>
-    <div class="social"></div>
+    <div class="social">
+        <img src="./img/fb.png" alt="">
+        <img src="./img/tw.png" alt="">
+        <img src="./img/in.png" alt="">
+    </div>
 </header>
 <main>
-    <section class="eco-mode">
-        <div>
-            <h2>Mode éco</h2>
-            <div>Aujourd’hui, tu as économisé 84.2 Mo !</div>
-        </div>
-        <div class="action">
-            <div class="eco-switch">
-                <input type="checkbox" id="switch"/><label for="switch">Toggle</label>
+    <section>
+        <div class="eco">
+            <div class="eco-inner">
+                <h2>Mode éco</h2>
+                <div class="action">
+                    <div class="eco-switch">
+                        <input type="checkbox" id="switch"/><label for="switch">Toggle</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings">
+                <a href="#"><img src="./img/icon_parametre.svg" alt=""></a>
             </div>
         </div>
-
+        <div class="eco-mode"></div>
     </section>
     <section class="stats">
         <div class="stat">
@@ -363,11 +488,11 @@
     <section class="conso">
         <div class="global block">
             <h2>Consommation globale</h2>
-            <div class="conso-date">Depuis le 14/02/2019</div>
+            <div class="conso-date proxima">Depuis le 14/02/2019</div>
             <div class="conso-size">400 Go</div>
-            <div class="center-text">C’est comme si tu parcourais</div>
-            <div class="conso-compare">🚘 24.1 Km</div>
-            <div class="center-text">En voiture</div>
+            <div class="center-text proxima">C’est comme si tu parcourais</div>
+            <div class="conso-compare">🚘 <em class="compar-num">24.1</em>  Km</div>
+            <div class="center-text proxima">En voiture</div>
         </div>
         <div class="history block">
             <h2>Historique</h2>
@@ -378,6 +503,9 @@
                     <button>Mois</button>
                 </div>
             </div>
+            <div class="graph">
+                <img src="./img/graphique.png" alt="">
+            </div>
         </div>
     </section>
     <section class="astuces">
@@ -385,13 +513,13 @@
             <h2>Astuces</h2>
             <div class="tip">
                 <img src="./greenpoke.png" alt="" class="icon-tip">
-                <div class="tip-text">Nous avons détecté que tu avais trop de fenêtres / d’appli ouvertes. Les
+                <div class="tip-text proxima">Nous avons détecté que tu avais trop de fenêtres / d’appli ouvertes. Les
                     utilises-tu toutes ? Penses à en fermer quelques unes 😉
                 </div>
             </div>
             <div class="tip">
                 <img src="./greenpoke.png" alt="" class="icon-tip">
-                <div class="tip-text">Ta consommation web journalière se rapproche du maximum conseillé… Que dirais-tu
+                <div class="tip-text proxima">Ta consommation web journalière se rapproche du maximum conseillé… Que dirais-tu
                     de faire une pause ? 🌿
                 </div>
             </div>
@@ -400,12 +528,12 @@
             <h2>Top 3 des sites les plus énergivores</h2>
             <div class="top-el">
                 <div class="top-icon">
-                    <img src="./img/globe.svg" alt="">
+                    <img src="./img/lm.png" alt="">
                 </div>
                 <div class="top-bar">
                     <div class="site-bar">
-                        <div class="name-bar">Dribbble</div>
-                        <div class="time-bar">52 min</div>
+                        <div class="name-bar proxima">Dribbble</div>
+                        <div class="time-bar proxima">52 min</div>
                     </div>
                     <div class="progress-bar">
                         <div class="progress-container">
@@ -413,18 +541,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="top-size">
+                <div class="top-size proxima">
                     189 Mo
                 </div>
             </div>
             <div class="top-el">
                 <div class="top-icon">
-                    <img src="./img/globe.svg" alt="">
+                    <img src="./img/medium.png" alt="">
                 </div>
                 <div class="top-bar">
                     <div class="site-bar">
-                        <div class="name-bar">Frandroïd</div>
-                        <div class="time-bar">25 min</div>
+                        <div class="name-bar proxima">Frandroïd</div>
+                        <div class="time-bar proxima">25 min</div>
                     </div>
                     <div class="progress-bar">
                         <div class="progress-container">
@@ -432,18 +560,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="top-size">
+                <div class="top-size proxima">
                     76 Mo
                 </div>
             </div>
             <div class="top-el">
                 <div class="top-icon">
-                    <img src="./img/globe.svg" alt="">
+                    <img src="./img/dr.png" alt="">
                 </div>
                 <div class="top-bar">
                     <div class="site-bar">
-                        <div class="name-bar">Le Monde</div>
-                        <div class="time-bar">10 min</div>
+                        <div class="name-bar proxima">Le Monde</div>
+                        <div class="time-bar proxima">10 min</div>
                     </div>
                     <div class="progress-bar">
                         <div class="progress-container">
@@ -451,16 +579,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="top-size">
+                <div class="top-size proxima">
                     24 Mo
                 </div>
             </div>
         </div>
     </section>
-    <div style="border: 1px solid green; min-height: 300px; margin-top: 40px" id="dashboard"></div>
+    <div id="dashboard"></div>
 </main>
 
-<script type="text/javascript" src="dummydata.json"></script>
+
 <script type="text/javascript" src="dashboard.js"></script>
 </body>
 </html>

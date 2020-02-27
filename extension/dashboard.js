@@ -34,7 +34,7 @@ function init() {
         let totalSiteContainer = document.createElement('div');
         totalSiteContainer.classList.add("total");
         totalSiteContainer.classList.add("total_sites");
-        totalSiteContainer.innerText = "Consommation par site";
+        //totalSiteContainer.innerText = "Consommation par site";
         totalSiteContainer.append(breakTag);
 
         // loop in object global
@@ -58,7 +58,7 @@ function init() {
 				totalSiteEl.append(value.title + ' - ' + value.url + ' = ' + roundSizeMo(totalSite) + ' Mo');
 				//calculate total global for all website by adding files size
 				totalGlobal = totalGlobal + totalSite;
-				totalSiteContainer.append(totalSiteEl);
+				//totalSiteContainer.append(totalSiteEl);
 
 				// order of top websites size
 				rankingSize[value.title] = totalSite;
@@ -79,6 +79,11 @@ function init() {
 		let totalDsp = document.querySelector('.conso-size');
 		totalDsp.innerText = roundSizeMo(totalGlobal) + ' Mo';
 		document.querySelector('.conso-size');
+
+		let totalCmp = document.querySelector('.compar-num');
+		totalCmp.innerText = Math.round(roundSizeMo(totalGlobal) / 7.9  * 100) / 100;
+
+		console.log(roundSizeMo(totalGlobal));
 
 		let top_el_1 = document.querySelector('#top_conso .top-el:nth-child(2)');
 		top_el_1.querySelector('.name-bar').innerText = sortable[0][0];
