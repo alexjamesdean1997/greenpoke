@@ -177,6 +177,10 @@ header nav ul li a {
 #extension h2 {
 	text-align: left;
 }
+#extension p{
+	font-size: 22px;
+	line-height: 27px;
+}
 #extension .links {
 	justify-content: flex-start;
 }
