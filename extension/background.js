@@ -30,6 +30,7 @@ chrome.runtime.onInstalled.addListener(function() {
 			$date = $date_obj.getTime();
 			$tabid = 0;
 			$files = 0;
+			$size = Math.random() * 6000 + 300;
 
 			chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 				$url = tabs[0].url;
@@ -53,7 +54,8 @@ chrome.runtime.onInstalled.addListener(function() {
 					date: $date,
 					tabid: $tabid,
 					files: $files,
-					global: $global
+					global: $global,
+					size: $size
 				}
 				chrome.storage.local.set({site_stats: site_data});	
 			});
