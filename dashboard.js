@@ -19,7 +19,9 @@ function init() {
         var actual_JSON = JSON.parse(response);
         console.log(actual_JSON);
 
+        // variables for calculation
         var totalGlobal = 0;
+        var rankingSize = {};
 
         let breakTag = document.createElement('br');
         let totalSiteContainer = document.createElement('div');
@@ -28,32 +30,70 @@ function init() {
         totalSiteContainer.innerText = "Consommation par site";
         totalSiteContainer.append(breakTag);
 
-        // calculate total size of each website by adding files size
+        // loop in object global
         Object.keys(actual_JSON).map(function(objectKey, index) {
             var value = actual_JSON[objectKey];
             var totalSite = 0;
             Object.keys(value.files).map(function(objectKey, index) {
                 var size = value.files[objectKey];
+                //calculate total size of each website by adding files size
                 totalSite = totalSite + size;
             });
             let totalSiteEl = document.createElement('div');
-            totalSiteEl.append(value.title + ' = ' + totalSite + ' ko');
+            totalSiteEl.append(value.title + ' - ' + value.url + ' = ' + totalSite + ' ko');
+            //calculate total global for all website by adding files size
             totalGlobal = totalGlobal + totalSite;
             totalSiteContainer.append(totalSiteEl);
+
+            // order of top websites size
+            rankingSize[value.title] = totalSite;
+
         });
 
-
+        // sorting order
+        var sortable = [];
+        for (var site in rankingSize) {
+            sortable.push([site, rankingSize[site]]);
+        }
+        sortable.sort(function(a, b) {
+            return b[1] - a[1];
+        });
 
         dashboard.append(totalSiteContainer);
 
         let totalGlobalEl = document.createElement('div');
-        totalGlobalEl.innerText = "Consommation globale";
+        totalGlobalEl.innerText = "Consommation globale = ";
         totalGlobalEl.classList.add("total");
         totalGlobalEl.classList.add("total_global");
-        totalGlobalEl.append(breakTag);
-        totalGlobalEl.append('TOTAL CONSOMMATION = ' + totalGlobal + ' ko');
+        totalGlobalEl.append(totalGlobal + ' ko');
         dashboard.append(totalGlobalEl);
 
+        // top 3 container
+        let topContainer = document.createElement('div');
+        topContainer.classList.add("total");
+        topContainer.classList.add("top_container");
+
+        //top 1
+        let topOne = document.createElement('div');
+        topOne.classList.add("top_el");
+        topOne.append(sortable[0][0] + " -> " + sortable[0][1]);
+
+        //top 2
+        let topTwo = document.createElement('div');
+        topTwo.classList.add("top_el");
+        topTwo.append(sortable[1][0] + " -> " + sortable[1][1]);
+
+        //top 3
+        let topThree = document.createElement('div');
+        topThree.classList.add("top_el");
+        topThree.append(sortable[2][0] + " -> " + sortable[2][1]);
+
+        topContainer.innerText = "TOP 3";
+        topContainer.append(breakTag);
+        topContainer.append(topOne);
+        topContainer.append(topTwo);
+        topContainer.append(topThree);
+        dashboard.append(topContainer);
 
 
 
