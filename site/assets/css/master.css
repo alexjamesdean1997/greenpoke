@@ -1,9 +1,8 @@
 /* FONTS */
 @font-face {
 	font-family: 'proximaNova';
-	src: url('../font/proxima-nova.ttf');
+	src: url('../font/ProximaNova-Regular.otf');
 }
-
 @font-face {
 	font-family: 'cocogooseBold';
 	src: url('../font/CocogoosePro-Bold.otf');
@@ -67,6 +66,7 @@ header nav ul li a {
 }
 #hero p {
 	font-size: 18px;
+	line-height: 20px;
 }
 #hero .links {
 	display: flex;

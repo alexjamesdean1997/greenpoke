@@ -1,4 +1,4 @@
-function loadJSON(callback) {
+/*function loadJSON(callback) {
 
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
@@ -10,14 +10,21 @@ function loadJSON(callback) {
         }
     };
     xobj.send(null);
+}*/
+
+function roundSizeMo(size) {
+	size = Math.trunc(size);
+ 	size = size / 1000;
+ 	return size;
 }
 
 function init() {
     let dashboard = document.getElementById('dashboard');
-    loadJSON(function(response) {
-        // Parse JSON string into object
-        var actual_JSON = JSON.parse(response);
-        console.log(actual_JSON);
+    
+		
+		
+	chrome.storage.local.get('site_stats', function(data) {
+		var stats = data['site_stats'];
 
         // variables for calculation
         var totalGlobal = 0;
@@ -31,16 +38,22 @@ function init() {
         totalSiteContainer.append(breakTag);
 
         // loop in object global
-        Object.keys(actual_JSON).map(function(objectKey, index) {
-            var value = actual_JSON[objectKey];
+        Object.keys(stats).map(function(objectKey, index) {
+            var value = stats[objectKey];
             var totalSite = 0;
-            Object.keys(value.files).map(function(objectKey, index) {
+            /*Object.keys(value.files).map(function(objectKey, index) {
                 var size = value.files[objectKey];
                 //calculate total size of each website by adding files size
                 totalSite = totalSite + size;
-            });
+			});*/
+
+			if(value.size) {
+				var size = value.size;
+				totalSite += size;
+			}
+
             let totalSiteEl = document.createElement('div');
-            totalSiteEl.append(value.title + ' - ' + value.url + ' = ' + totalSite + ' ko');
+            totalSiteEl.append(value.title + ' - ' + value.url + ' = ' + roundSizeMo(totalSite) + ' Mo');
             //calculate total global for all website by adding files size
             totalGlobal = totalGlobal + totalSite;
             totalSiteContainer.append(totalSiteEl);
@@ -65,7 +78,7 @@ function init() {
         totalGlobalEl.innerText = "Consommation globale = ";
         totalGlobalEl.classList.add("total");
         totalGlobalEl.classList.add("total_global");
-        totalGlobalEl.append(totalGlobal + ' ko');
+        totalGlobalEl.append(roundSizeMo(totalGlobal) + ' Mo');
         dashboard.append(totalGlobalEl);
 
         // top 3 container
