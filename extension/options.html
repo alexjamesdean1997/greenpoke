@@ -2,45 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="greenpoke.png" />
+    <link rel="icon" href="greenpoke.png"/>
     <title>GreenPoke</title>
     <style>
-        header{
+        body{
+            background: transparent linear-gradient(0deg, #FFE8DE 0%, #EDF9EE 100%) 0% 0% no-repeat padding-box;
+        }
+
+        header {
             position: fixed;
             top: 0;
             left: 0;
             bottom: 0;
             width: 280px;
-            background-color: #F2F2F2;
+            background: #EFF7EC 0% 0% no-repeat padding-box;
+            box-shadow: 0px 10px 40px #00000029;
         }
-        main{
+
+        main {
             width: calc(100% - 280px);
             margin-left: auto;
         }
-        .eco-mode{
-            background-color: #F8F8F8;
+
+        .eco-mode {
+            background-color: white;
             margin: 20px;
             padding: 20px;
             border-radius: 10px;
         }
 
-        .stats{
+        .stats {
             padding: 10px;
         }
 
-        .center-text{
+        .center-text {
             text-align: center;
         }
 
-        h2{
+        h2 {
             margin: 0;
         }
-        .help{
+
+        .help {
             display: flex;
             justify-content: flex-end;
             padding: 10px;
         }
-        .help .icon{
+
+        .help .icon {
             height: 25px;
             width: 25px;
             background-color: #333;
@@ -51,161 +60,211 @@
             justify-content: center;
             text-decoration: none;
         }
-        .points{
+
+        .points {
             padding: 20px;
             display: flex;
             justify-content: center;
             font-size: 40px;
         }
-        .profile{
+
+        .profile {
             min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .profile img{
+
+        .profile img {
             width: 150px;
             height: 150px;
             object-fit: cover;
             border-radius: 50%;
         }
-        .name{
+
+        .name {
             text-align: center;
             font-size: 20px;
             font-weight: bold;
             padding-top: 20px;
         }
-        .eco-mode{
+
+        .eco-mode {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .eco-switch{
+
+        .eco-switch {
             display: flex;
         }
-        .stats{
+
+        .stats {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+            padding: 10px 40px;
         }
-        .stats img{
+
+        .stats img {
             width: 50px;
             height: auto;
         }
-        .stat{
+
+        .stat {
             display: flex;
+            align-items: center;
         }
+
         .emoji {
             font-size: 20px;
         }
-        .number{
+
+        .number {
             font-size: 25px;
             font-weight: bold;
             margin-left: 5px;
         }
-        .explication{
+
+        .explication {
             font-size: 16px;
-            margin: 5px 0  0 5px;
+            margin: 5px 0 0 5px;
         }
-        .conso, .astuces{
+
+        .conso, .astuces {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             grid-gap: 40px;
             padding: 20px;
         }
-        .conso-size{
+
+        .conso-size {
             margin-top: 20px;
             font-size: 50px;
             text-align: center;
             font-weight: bold;
         }
 
-        .conso-compare{
+        .conso-compare {
             margin-top: 20px;
             font-size: 30px;
             text-align: center;
             font-weight: bold;
         }
 
-        .block{
+        .block {
             border-radius: 10px;
             padding: 20px;
             min-height: 160px;
             background-color: #F8F8F8;
+            box-shadow: 0px 9px 44px #00000029;
         }
 
-        .global, .top{
+        .global, .top {
             grid-column: span 2;
         }
 
-        .history, .tips{
+        .history, .tips {
             grid-column: span 3;
         }
 
-        .tip{
+        .global, .top{
+            background-color: #F19363CC;
+            color: white;
+        }
+
+        .tips{
+            background-color: #82BFA1;
+        }
+
+        .tip {
             margin: 10px 0;
             border-radius: 10px;
             display: flex;
             padding: 20px;
             background-color: white;
         }
-        .icon-tip{
+
+        .icon-tip {
             width: 30px;
             height: 30px;
             margin-right: 20px;
         }
-        .top-el{
+
+        .top-el {
             padding: 20px 0;
             display: flex;
             align-items: center;
         }
 
-        .top-bar{
+        .top-bar {
             margin-left: 15px;
             width: 70%;
         }
 
-        .top-size{
+        .top-size {
             width: 22%;
             text-align: right;
         }
 
-        .site-bar{
+        .site-bar {
             display: flex;
             justify-content: space-between;
             margin-bottom: 3px;
         }
 
-        .progress-bar{
+        .progress-bar {
             width: 100%;
         }
 
-        .progress-container{
+        .progress-container {
             height: 10px;
             background-color: white;
             border-radius: 10px;
         }
 
-        .fill{
+        .fill {
             width: 70%;
             height: 10px;
             border-radius: 10px;
             background-color: #1BA383;
         }
 
-        .fill-70{
-             width: 70%;
-         }
+        .fill-70 {
+            width: 70%;
+        }
 
-        .fill-50{
+        .fill-50 {
             width: 50%;
         }
 
-        .fill-30{
+        .fill-30 {
             width: 30%;
         }
 
-        .total{
+        .period-inner {
+            margin: auto;
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            background-color: #DEDEDE;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            width: 33%;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .active, button:hover, button:active {
+            background-color: #1BA383;
+        }
+
+        .total {
             padding: 10px;
             margin: 10px;
             border: 1px solid black;
@@ -279,7 +338,7 @@
         </div>
         <div class="action">
             <div class="eco-switch">
-                <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                <input type="checkbox" id="switch"/><label for="switch">Toggle</label>
             </div>
         </div>
 
@@ -287,24 +346,18 @@
     <section class="stats">
         <div class="stat">
             <div class="emoji">⏳</div>
-            <div>
-                <div class="number">2h46</div>
-                <div class="explication">Temps web</div>
-            </div>
+            <div class="number">2h46</div>
+            <div class="explication">Temps web</div>
         </div>
         <div class="stat">
             <div class="emoji">🏆</div>
-            <div>
-                <div class="number">17</div>
-                <div class="explication">Challenge</div>
-            </div>
+            <div class="number">17</div>
+            <div class="explication">Challenge</div>
         </div>
         <div class="stat">
             <div class="emoji">👨🏻‍💻</div>
-            <div>
-                <div class="number">350</div>
-                <div class="explication">Utilisateurs</div>
-            </div>
+            <div class="number">350</div>
+            <div class="explication">Utilisateurs</div>
         </div>
     </section>
     <section class="conso">
@@ -319,7 +372,11 @@
         <div class="history block">
             <h2>Historique</h2>
             <div class="period">
-
+                <div class="period-inner">
+                    <button class="active">Jour</button>
+                    <button>Semaine</button>
+                    <button>Mois</button>
+                </div>
             </div>
         </div>
     </section>
@@ -328,11 +385,15 @@
             <h2>Astuces</h2>
             <div class="tip">
                 <img src="./greenpoke.png" alt="" class="icon-tip">
-                <div class="tip-text">Nous avons détecté que tu avais trop de fenêtres / d’appli ouvertes. Les utilises-tu toutes ? Penses à en fermer quelques unes 😉</div>
+                <div class="tip-text">Nous avons détecté que tu avais trop de fenêtres / d’appli ouvertes. Les
+                    utilises-tu toutes ? Penses à en fermer quelques unes 😉
+                </div>
             </div>
             <div class="tip">
                 <img src="./greenpoke.png" alt="" class="icon-tip">
-                <div class="tip-text">Ta consommation web journalière se rapproche du maximum conseillé… Que dirais-tu de faire une pause ? 🌿</div>
+                <div class="tip-text">Ta consommation web journalière se rapproche du maximum conseillé… Que dirais-tu
+                    de faire une pause ? 🌿
+                </div>
             </div>
         </div>
         <div class="top block">
@@ -399,7 +460,7 @@
     <div style="border: 1px solid green; min-height: 300px; margin-top: 40px" id="dashboard"></div>
 </main>
 
-    <script type="text/javascript" src="dummydata.json"></script>
-    <script type="text/javascript" src="dashboard.js"></script>
+<script type="text/javascript" src="dummydata.json"></script>
+<script type="text/javascript" src="dashboard.js"></script>
 </body>
 </html>
