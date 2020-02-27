@@ -4,16 +4,224 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 280px;
+            background-color: #F2F2F2;
+        }
+        main{
+            width: calc(100% - 280px);
+            margin-left: auto;
+        }
+        .eco-mode, .stats{
+            background-color: #fafafa;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h2{
+            margin: 0;
+        }
+        .help{
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+        .help .icon{
+            height: 25px;
+            width: 25px;
+            background-color: #333;
+            border-radius: 30px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .points{
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .profile{
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile img{
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .name{
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        .eco-mode{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .eco-switch{
+            display: flex;
+        }
+        .stats{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .stats img{
+            width: 50px;
+            height: auto;
+        }
+        .stat{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .conso, .astuces{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 40px;
+            padding: 20px;
+        }
+
+        .block{
+            padding: 20px;
+            min-height: 160px;
+            background-color: #fafafa;
+        }
+
+        .global, .top{
+            grid-column: span 2;
+        }
+
+        .history, .tips{
+            grid-column: span 3;
+        }
         .total{
             padding: 10px;
             margin: 10px;
             border: 1px solid black;
         }
+
+        /* toggle button */
+
+        input[type=checkbox] {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+        }
+
+        label {
+            cursor: pointer;
+            text-indent: -9999px;
+            width: 50px;
+            height: 24px;
+            background: grey;
+            display: block;
+            border-radius: 100px;
+            position: relative;
+        }
+
+        label:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 90px;
+            transition: 0.3s;
+        }
+
+        input:checked + label {
+            background: #1da283;
+        }
+
+        input:checked + label:after {
+            left: calc(100% - 2px);
+            transform: translateX(-100%);
+        }
+
+        label:active:after {
+            width: 26px;
+        }
     </style>
 </head>
 <body>
-    dashboard
-    <div style="border: 1px solid green; min-height: 300px;" id="dashboard"></div>
+<header>
+    <div class="help">
+        <a href="#" class="icon">?</a>
+    </div>
+    <div class="points">35 pts</div>
+    <div class="profile">
+        <div>
+            <img src="/img/alex.jpg" alt="profile picture">
+            <div class="name">John Smith</div>
+        </div>
+    </div>
+    <div class="social"></div>
+</header>
+<main>
+    <section class="eco-mode">
+        <div>
+            <h2>Mode éco</h2>
+            <div>Aujourd’hui, tu as économisé 000 Go !</div>
+        </div>
+        <div class="action">
+            <div class="eco-switch">
+                <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+            </div>
+        </div>
+
+    </section>
+    <section class="stats">
+        <div class="stat">
+            <img src="/greenpoke.png" alt="">
+            <div class="number">123</div>
+            <div class="explication">lorem ipsum amet</div>
+        </div>
+        <div class="stat">
+            <img src="/greenpoke.png" alt="">
+            <div class="number">123</div>
+            <div class="explication">lorem ipsum amet</div>
+        </div>
+        <div class="stat">
+            <img src="/greenpoke.png" alt="">
+            <div class="number">123</div>
+            <div class="explication">lorem ipsum amet</div>
+        </div>
+    </section>
+    <section class="conso">
+        <div class="global block">
+            <h2>Consommation globale</h2>
+        </div>
+        <div class="history block">
+            <h2>Historique</h2>
+        </div>
+    </section>
+    <section class="astuces">
+        <div class="tips block">
+            <h2>Astuces</h2>
+        </div>
+        <div class="top block">
+            <h2>Top 3 des sites les plus énergivores</h2>
+        </div>
+    </section>
+    <div style="border: 1px solid green; min-height: 300px; margin-top: 40px" id="dashboard"></div>
+</main>
+
     <script type="text/javascript" src="dummydata.json"></script>
     <script type="text/javascript" src="dashboard.js"></script>
 </body>
