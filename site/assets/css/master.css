@@ -11,7 +11,6 @@
 /* GENERAL */
 body {
 	font-family: 'proximaNova';
-	margin-bottom: 1000px;
 }
 h2 {
 	font-family: 'cocogooseBold';
@@ -112,8 +111,17 @@ header nav ul li a {
 #description {
 	margin-top: -100px;
 	padding-top: 100px;
+	padding-bottom: 100px;
 	/*background: transparent linear-gradient(358deg, #F18447 0%, #F19363 53%, #F1A27E 100%) 0% 0% no-repeat padding-box;*/
+	background: linear-gradient(rgba(241,132,71,0.07), rgba(241,147,99,0.07), rgba(241,162,126,0.07));
+	position: relative;
 }
+#description .rocher {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
 #description > article {
 	display: flex;
 	justify-content: center;
@@ -150,18 +158,83 @@ header nav ul li a {
 }
 
 /* EXTENSION */
-#discover article {
+#extension {
+	margin-bottom: 400px;
+	padding-top: 150px;
+	position: relative;
+}
+#extension .desktop {
+	position: absolute;
+	right: 0;
+	top: 50px;
+	width: calc( 100% - 550px);
+}
+
+#extension article {
 	max-width: 500px;
 	margin: 0 60px;
 }
-#discover h2 {
+#extension h2 {
 	text-align: left;
 }
-#discover .links {
+#extension .links {
 	justify-content: flex-start;
 }
 
 /* MOBILEAPP */
+#mobileapp {
+	display: flex;
+	justify-content: center;
+	color: white;
+	text-align: center;
+}
+#mobileapp article {
+	max-width: 650px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 #mobileapp h2 {
 	color: white;
+}
+#mobileapp p {
+	max-width: 500px;
+	font-size: 22px;
+	line-height: 27px;
+}
+#mobileapp .social-links {
+	margin-top: 40px;
+	margin-bottom: 100px;
+}
+
+#wrapper_ext_app {
+	background-image: url('../img/greenpoke_vague.png');
+	background-size: 100% 95%;
+	background-position: bottom;
+	background-repeat: no-repeat;
+}
+
+/* PARTNER */
+#partner {
+	margin-top: 70px;
+
+}
+#partner article {
+	display: flex;
+	justify-content: center;
+}
+#partner article img {
+	height: 100px;
+	width: auto;
+}
+#partner article img:nth-child(n+2) {
+	margin-left: 20px;
+}
+
+/* FOOTER */
+footer {
+	margin-top: 120px;
+	background: transparent linear-gradient(355deg, #1B7B65 0%, #34967F 53%, #2CAC8E 100%) 0% 0% no-repeat padding-box;
+	height: 300px;
+	width: 100%;
 }
