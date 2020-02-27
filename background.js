@@ -4,12 +4,13 @@ chrome.runtime.onInstalled.addListener(function() {
 			
 			var site_data = new Object();
 			$url = '';
-			$title = 'plop';
+			$title = '';
 			$date_obj = new Date;
 			$date = $date_obj.getTime();
 
 			chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 				$url = tabs[0].url;
+				$title = tabs[0].title;
 			});
 
 			chrome.storage.local.get('site_stats', function(data) {
