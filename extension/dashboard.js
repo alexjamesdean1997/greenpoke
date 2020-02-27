@@ -41,26 +41,28 @@ function init() {
         Object.keys(stats).map(function(objectKey, index) {
             var value = stats[objectKey];
             var totalSite = 0;
-            /*Object.keys(value.files).map(function(objectKey, index) {
-                var size = value.files[objectKey];
-                //calculate total size of each website by adding files size
-                totalSite = totalSite + size;
-			});*/
 
-			if(value.size) {
-				var size = value.size;
-				totalSite += size;
+			var res = value.url.match(/chrome-extension:\/\/|chrome:\/\/|file:\/\/\//g);
+			if(!res) {
+				/*Object.keys(value.files).map(function(objectKey, index) {
+					var size = value.files[objectKey];
+					//calculate total size of each website by adding files size
+					totalSite = totalSite + size;
+				});*/
+				if(value.size) {
+					var size = value.size;
+					totalSite += size;
+				}
+
+				let totalSiteEl = document.createElement('div');
+				totalSiteEl.append(value.title + ' - ' + value.url + ' = ' + roundSizeMo(totalSite) + ' Mo');
+				//calculate total global for all website by adding files size
+				totalGlobal = totalGlobal + totalSite;
+				totalSiteContainer.append(totalSiteEl);
+
+				// order of top websites size
+				rankingSize[value.title] = totalSite;
 			}
-
-            let totalSiteEl = document.createElement('div');
-            totalSiteEl.append(value.title + ' - ' + value.url + ' = ' + roundSizeMo(totalSite) + ' Mo');
-            //calculate total global for all website by adding files size
-            totalGlobal = totalGlobal + totalSite;
-            totalSiteContainer.append(totalSiteEl);
-
-            // order of top websites size
-            rankingSize[value.title] = totalSite;
-
         });
 
         // sorting order
@@ -72,44 +74,21 @@ function init() {
             return b[1] - a[1];
         });
 
-        dashboard.append(totalSiteContainer);
+        dashboard.append(totalSiteContainer);  
+		
+		let totalDsp = document.querySelector('.conso-size');
+		totalDsp.innerText = roundSizeMo(totalGlobal) + ' Mo';
+		document.querySelector('.conso-size');
 
-        let totalGlobalEl = document.createElement('div');
-        totalGlobalEl.innerText = "Consommation globale = ";
-        totalGlobalEl.classList.add("total");
-        totalGlobalEl.classList.add("total_global");
-        totalGlobalEl.append(roundSizeMo(totalGlobal) + ' Mo');
-        dashboard.append(totalGlobalEl);
-
-        // top 3 container
-        let topContainer = document.createElement('div');
-        topContainer.classList.add("total");
-        topContainer.classList.add("top_container");
-
-        //top 1
-        let topOne = document.createElement('div');
-        topOne.classList.add("top_el");
-        topOne.append(sortable[0][0] + " -> " + sortable[0][1]);
-
-        //top 2
-        let topTwo = document.createElement('div');
-        topTwo.classList.add("top_el");
-        topTwo.append(sortable[1][0] + " -> " + sortable[1][1]);
-
-        //top 3
-        let topThree = document.createElement('div');
-        topThree.classList.add("top_el");
-        topThree.append(sortable[2][0] + " -> " + sortable[2][1]);
-
-        topContainer.innerText = "TOP 3";
-        topContainer.append(breakTag);
-        topContainer.append(topOne);
-        topContainer.append(topTwo);
-        topContainer.append(topThree);
-        dashboard.append(topContainer);
-
-
-
+		let top_el_1 = document.querySelector('#top_conso .top-el:nth-child(2)');
+		top_el_1.querySelector('.name-bar').innerText = sortable[0][0];
+		top_el_1.querySelector('.top-size').innerText = Math.round(roundSizeMo(sortable[0][1])) + ' Mo';
+		let top_el_2 = document.querySelector('#top_conso .top-el:nth-child(3)');
+		top_el_2.querySelector('.name-bar').innerText = sortable[1][0];
+		top_el_2.querySelector('.top-size').innerText = Math.round(roundSizeMo(sortable[1][1])) + ' Mo';
+		let top_el_3 = document.querySelector('#top_conso .top-el:nth-child(4)');
+		top_el_3.querySelector('.name-bar').innerText = sortable[2][0];
+		top_el_3.querySelector('.top-size').innerText = Math.round(roundSizeMo(sortable[2][1])) + ' Mo';
     });
 }
 

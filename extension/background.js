@@ -19,6 +19,13 @@ function add_file(tabid, reqid, url, code, from_cache, type, size) {
 $global = 0;
 chrome.debugger.onEvent.addListener(onNetworkEvent);
 
+exception = [
+	'chrome-extension:\/\/',
+	'chrome:\/\/',
+	'file:\/\/\/',
+];
+reg = '/' + exception.join('|') + '/g';
+
 chrome.runtime.onInstalled.addListener(function() {
 	chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
 		if (changeInfo.status == 'complete') {
@@ -38,27 +45,29 @@ chrome.runtime.onInstalled.addListener(function() {
 				$tabid = tabs[0].id;
 			});
 			
-
-			chrome.storage.local.get('site_stats', function(data) {
-				var stats = data['site_stats'];
-				if(stats) {
-					site_data = stats;
-					$nextId = Object.keys(stats).length+1;
-				} else {
-					$nextId = 1;
-				}
-
-				site_data[$nextId] = {
-					url: $url,
-					title: $title,
-					date: $date,
-					tabid: $tabid,
-					files: $files,
-					global: $global,
-					size: $size
-				}
-				chrome.storage.local.set({site_stats: site_data});	
-			});
+			var res = $url.match(/chrome-extension:\/\/|chrome:\/\/|file:\/\/\//g);
+			if(!res) {
+				chrome.storage.local.get('site_stats', function(data) {
+					var stats = data['site_stats'];
+					if(stats) {
+						site_data = stats;
+						$nextId = Object.keys(stats).length+1;
+					} else {
+						$nextId = 1;
+					}
+	
+					site_data[$nextId] = {
+						url: $url,
+						title: $title,
+						date: $date,
+						tabid: $tabid,
+						files: $files,
+						global: $global,
+						size: $size
+					}
+					chrome.storage.local.set({site_stats: site_data});	
+				});
+			}
 		}
 	});
 });
