@@ -1,0 +1,90 @@
+/* FONTS */
+@font-face {
+	font-family: 'proximaNova';
+	src: url('../font/proxima-nova.ttf');
+}
+
+@font-face {
+	font-family: 'cocogooseBold';
+	src: url('../font/CocogoosePro-Bold.otf');
+}
+
+/* GENERAL */
+body {
+	font-family: 'proximaNova';
+}
+  
+/* HEADER */
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #F3F9F0;
+	padding: 0 64px;
+}
+#logo {
+	margin: 16px 0;
+	height: 80px;
+}
+#logo img {
+	width: auto;
+	height: 80px;
+}
+header nav ul {
+	display: flex;
+}
+header nav ul li {
+	margin-left: 100px;
+}
+header nav ul li a {
+	color: #1BA383;
+	font-size: 18px;
+	text-decoration: none;
+	font-family: 'cocogooseBold';
+}
+
+/* HERO */
+#hero {
+	height: calc(100vh - 112px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-image: url('../img/greenpoke-bg.png');
+	background-size: cover;
+	background-attachment: fixed;
+}
+#hero article {
+	max-width: 1000px;
+	margin: 0 32px;
+}
+#hero h1 {
+	font-size: 20px;
+	color: #1BA383;
+	font-family: 'cocogooseBold';
+	margin-bottom: 16px;
+}
+#hero p {
+	font-size: 18px;
+}
+#hero .links {
+	display: flex;
+	justify-content: center;
+	margin-top: 32px;
+}
+#hero .links a {
+	display: block;
+	font-size: 18px;
+	background-color: #1BA383;
+	color: white;
+	font-family: 'cocogooseBold';
+	text-decoration: none;
+	width: 320px;
+	text-align: center;
+	padding: 20px 0;
+	border-radius: 8px;
+}
+#hero .links a:first-child {
+	margin-right: 20px;
+}
