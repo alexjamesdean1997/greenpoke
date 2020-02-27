@@ -11,6 +11,35 @@
 /* GENERAL */
 body {
 	font-family: 'proximaNova';
+	margin-bottom: 1000px;
+}
+h2 {
+	font-family: 'cocogooseBold';
+	font-size: 30px;
+	color: #1BA383;
+	text-align: center;
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+h3 {
+	font-family: 'cocogooseBold';
+	font-size: 22px;
+}
+.links {
+	display: flex;
+	justify-content: center;
+	margin-top: 32px;
+}
+.links a {
+	display: block;
+	font-size: 18px;
+	background-color: #1BA383;
+	color: white;
+	font-family: 'cocogooseBold';
+	text-decoration: none;
+	text-align: center;
+	padding: 20px 40px;
+	border-radius: 8px;
 }
   
 /* HEADER */
@@ -44,19 +73,25 @@ header nav ul li a {
 
 /* HERO */
 #hero {
-	height: calc(100vh - 112px);
+	height: calc(100vh);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	position: relative;	
 	text-align: center;
 	background-image: url('../img/greenpoke-bg.png');
 	background-size: cover;
-	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	/*background-attachment: fixed;*/
 }
 #hero article {
 	max-width: 800px;
 	margin: 0 32px;
+	position: absolute;
+	top: 50vh;
+	transform: translateY(-80%);
 }
 #hero h1 {
 	font-size: 20px;
@@ -68,23 +103,65 @@ header nav ul li a {
 	font-size: 20px;
 	line-height: 24px;
 }
-#hero .links {
-	display: flex;
-	justify-content: center;
-	margin-top: 32px;
-}
-#hero .links a {
-	display: block;
-	font-size: 18px;
-	background-color: #1BA383;
-	color: white;
-	font-family: 'cocogooseBold';
-	text-decoration: none;
-	width: 450px;
-	text-align: center;
-	padding: 20px 0;
-	border-radius: 8px;
-}
+
 #hero .links a:first-child {
 	margin-right: 20px;
+}
+
+/* DESCRIPTION */
+#description {
+	margin-top: -100px;
+	padding-top: 100px;
+	/*background: transparent linear-gradient(358deg, #F18447 0%, #F19363 53%, #F1A27E 100%) 0% 0% no-repeat padding-box;*/
+}
+#description > article {
+	display: flex;
+	justify-content: center;
+}
+#description .content-center {
+	align-self: center;
+	margin: 0 60px;
+}
+#description .content-center img {
+	width: 140px;
+	height: auto;
+}
+#description .content-left, #description .content-right {
+	max-width: 500px;
+	font-size: 22px;
+}
+#description .content-left {
+	text-align: right;
+}
+
+#description > article > section > article:nth-child(1) {
+	min-height: 120px;
+	margin-bottom: 25px;
+}
+#description > article > section > article:nth-child(n+2) {
+	min-height: 150px;
+	margin-bottom: 40px;
+}
+#description > article > section h3 {
+	margin-bottom: 10px;
+}
+#description > article > section p {
+	line-height: 27px;
+}
+
+/* EXTENSION */
+#discover article {
+	max-width: 500px;
+	margin: 0 60px;
+}
+#discover h2 {
+	text-align: left;
+}
+#discover .links {
+	justify-content: flex-start;
+}
+
+/* MOBILEAPP */
+#mobileapp h2 {
+	color: white;
 }
