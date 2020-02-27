@@ -17,10 +17,19 @@
             width: calc(100% - 280px);
             margin-left: auto;
         }
-        .eco-mode, .stats{
-            background-color: #fafafa;
+        .eco-mode{
+            background-color: #F8F8F8;
             margin: 20px;
             padding: 20px;
+            border-radius: 10px;
+        }
+
+        .stats{
+            padding: 10px;
+        }
+
+        .center-text{
+            text-align: center;
         }
 
         h2{
@@ -85,9 +94,18 @@
         }
         .stat{
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        }
+        .emoji {
+            font-size: 20px;
+        }
+        .number{
+            font-size: 25px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        .explication{
+            font-size: 16px;
+            margin: 5px 0  0 5px;
         }
         .conso, .astuces{
             display: grid;
@@ -95,11 +113,25 @@
             grid-gap: 40px;
             padding: 20px;
         }
+        .conso-size{
+            margin-top: 20px;
+            font-size: 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .conso-compare{
+            margin-top: 20px;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
 
         .block{
+            border-radius: 10px;
             padding: 20px;
             min-height: 160px;
-            background-color: #fafafa;
+            background-color: #F8F8F8;
         }
 
         .global, .top{
@@ -109,6 +141,70 @@
         .history, .tips{
             grid-column: span 3;
         }
+
+        .tip{
+            margin: 10px 0;
+            border-radius: 10px;
+            display: flex;
+            padding: 20px;
+            background-color: white;
+        }
+        .icon-tip{
+            width: 30px;
+            height: 30px;
+            margin-right: 20px;
+        }
+        .top-el{
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar{
+            margin-left: 15px;
+            width: 70%;
+        }
+
+        .top-size{
+            width: 22%;
+            text-align: right;
+        }
+
+        .site-bar{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+
+        .progress-bar{
+            width: 100%;
+        }
+
+        .progress-container{
+            height: 10px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .fill{
+            width: 70%;
+            height: 10px;
+            border-radius: 10px;
+            background-color: #1BA383;
+        }
+
+        .fill-70{
+             width: 70%;
+         }
+
+        .fill-50{
+            width: 50%;
+        }
+
+        .fill-30{
+            width: 30%;
+        }
+
         .total{
             padding: 10px;
             margin: 10px;
@@ -128,7 +224,7 @@
             text-indent: -9999px;
             width: 50px;
             height: 24px;
-            background: grey;
+            background: #DEDEDE;
             display: block;
             border-radius: 100px;
             position: relative;
@@ -137,10 +233,11 @@
         label:after {
             content: '';
             position: absolute;
-            top: 2px;
-            left: 3px;
-            width: 20px;
-            height: 20px;
+            top: -2px;
+            left: 0px;
+            width: 28px;
+            height: 28px;
+            box-shadow: 0px 2px 8px #00000010;
             background: #fff;
             border-radius: 90px;
             transition: 0.3s;
@@ -151,7 +248,7 @@
         }
 
         input:checked + label:after {
-            left: calc(100% - 2px);
+            left: calc(100%);
             transform: translateX(-100%);
         }
 
@@ -178,7 +275,7 @@
     <section class="eco-mode">
         <div>
             <h2>Mode éco</h2>
-            <div>Aujourd’hui, tu as économisé 000 Go !</div>
+            <div>Aujourd’hui, tu as économisé 84.2 Mo !</div>
         </div>
         <div class="action">
             <div class="eco-switch">
@@ -189,35 +286,114 @@
     </section>
     <section class="stats">
         <div class="stat">
-            <img src="/greenpoke.png" alt="">
-            <div class="number">123</div>
-            <div class="explication">lorem ipsum amet</div>
+            <div class="emoji">⏳</div>
+            <div>
+                <div class="number">2h46</div>
+                <div class="explication">Temps web</div>
+            </div>
         </div>
         <div class="stat">
-            <img src="/greenpoke.png" alt="">
-            <div class="number">123</div>
-            <div class="explication">lorem ipsum amet</div>
+            <div class="emoji">🏆</div>
+            <div>
+                <div class="number">17</div>
+                <div class="explication">Challenge</div>
+            </div>
         </div>
         <div class="stat">
-            <img src="/greenpoke.png" alt="">
-            <div class="number">123</div>
-            <div class="explication">lorem ipsum amet</div>
+            <div class="emoji">👨🏻‍💻</div>
+            <div>
+                <div class="number">350</div>
+                <div class="explication">Utilisateurs</div>
+            </div>
         </div>
     </section>
     <section class="conso">
         <div class="global block">
             <h2>Consommation globale</h2>
+            <div class="conso-date">Depuis le 14/02/2019</div>
+            <div class="conso-size">400 Go</div>
+            <div class="center-text">C’est comme si tu parcourais</div>
+            <div class="conso-compare">🚘 24.1 Km</div>
+            <div class="center-text">En voiture</div>
         </div>
         <div class="history block">
             <h2>Historique</h2>
+            <div class="period">
+
+            </div>
         </div>
     </section>
     <section class="astuces">
         <div class="tips block">
             <h2>Astuces</h2>
+            <div class="tip">
+                <img src="./greenpoke.png" alt="" class="icon-tip">
+                <div class="tip-text">Nous avons détecté que tu avais trop de fenêtres / d’appli ouvertes. Les utilises-tu toutes ? Penses à en fermer quelques unes 😉</div>
+            </div>
+            <div class="tip">
+                <img src="./greenpoke.png" alt="" class="icon-tip">
+                <div class="tip-text">Ta consommation web journalière se rapproche du maximum conseillé… Que dirais-tu de faire une pause ? 🌿</div>
+            </div>
         </div>
         <div class="top block">
             <h2>Top 3 des sites les plus énergivores</h2>
+            <div class="top-el">
+                <div class="top-icon">
+                    <img src="./img/globe.svg" alt="">
+                </div>
+                <div class="top-bar">
+                    <div class="site-bar">
+                        <div class="name-bar">Dribbble</div>
+                        <div class="time-bar">52 min</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-container">
+                            <div class="fill fill-70"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-size">
+                    189 Mo
+                </div>
+            </div>
+            <div class="top-el">
+                <div class="top-icon">
+                    <img src="./img/globe.svg" alt="">
+                </div>
+                <div class="top-bar">
+                    <div class="site-bar">
+                        <div class="name-bar">Frandroïd</div>
+                        <div class="time-bar">25 min</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-container">
+                            <div class="fill fill-50"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-size">
+                    76 Mo
+                </div>
+            </div>
+            <div class="top-el">
+                <div class="top-icon">
+                    <img src="./img/globe.svg" alt="">
+                </div>
+                <div class="top-bar">
+                    <div class="site-bar">
+                        <div class="name-bar">Le Monde</div>
+                        <div class="time-bar">10 min</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-container">
+                            <div class="fill fill-30"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-size">
+                    24 Mo
+                </div>
+            </div>
         </div>
     </section>
     <div style="border: 1px solid green; min-height: 300px; margin-top: 40px" id="dashboard"></div>
