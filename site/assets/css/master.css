@@ -15,6 +15,7 @@ body {
 h2 {
 	font-family: 'cocogooseBold';
 	font-size: 30px;
+	line-height: 40px;
 	color: #1BA383;
 	text-align: center;
 	margin-bottom: 40px;
@@ -93,10 +94,11 @@ header nav ul li a {
 	transform: translateY(-80%);
 }
 #hero h1 {
-	font-size: 20px;
+	font-size: 30px;
+	line-height: 42px;
 	color: #1BA383;
 	font-family: 'cocogooseBold';
-	margin-bottom: 16px;
+	margin-bottom: 40px;
 }
 #hero p {
 	font-size: 20px;
@@ -159,7 +161,7 @@ header nav ul li a {
 
 /* EXTENSION */
 #extension {
-	margin-bottom: 400px;
+	margin-bottom: 250px;
 	padding-top: 150px;
 	position: relative;
 }
@@ -187,6 +189,7 @@ header nav ul li a {
 
 /* MOBILEAPP */
 #mobileapp {
+	padding-top: 150px;
 	display: flex;
 	justify-content: center;
 	color: white;
@@ -238,7 +241,42 @@ header nav ul li a {
 /* FOOTER */
 footer {
 	margin-top: 120px;
+	padding-bottom: 100px;
+	padding-top: 120px;
 	background: transparent linear-gradient(355deg, #1B7B65 0%, #34967F 53%, #2CAC8E 100%) 0% 0% no-repeat padding-box;
-	height: 300px;
+	/*height: 300px;*/
 	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column: 4 span;
+	grid-column-gap: 120px;
+}
+footer > article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+footer h3 {
+	color: white;
+	margin-bottom: 30px;
+}
+footer ul li {
+	margin-bottom: 20px;
+}
+footer ul li a {
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+}
+footer .logo img {
+	width: 200px;
+}
+footer .logo-rs ul {
+	display: flex;
+}
+footer .logo-rs ul li:nth-child(n+2) {
+	margin-left: 20px;
+}
+footer .logo-rs ul li a img {
+	width: 30px;
 }
